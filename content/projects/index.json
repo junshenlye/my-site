@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "cli-tool",
+    "title": "A small CLI tool",
+    "date": "2026-04",
+    "status": "Active",
+    "description": "Automates a repetitive local task",
+    "githubSlug": "cli-tool"
+  },
+  {
+    "slug": "this-site",
+    "title": "This site",
+    "date": "2026-04",
+    "status": "Shipped",
+    "description": "Personal site built from a brand system",
+    "githubSlug": "personal-site"
+  },
+  {
+    "slug": "http-server",
+    "title": "Tiny HTTP server",
+    "date": "2025-12",
+    "status": "Paused",
+    "description": "Learning exercise implementing HTTP/1.1 in C",
+    "githubSlug": "http-server"
+  }
+]
