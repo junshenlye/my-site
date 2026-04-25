@@ -2,15 +2,17 @@ import Link from "next/link";
 import Nav from "./components/Nav";
 import GitHubGraph from "./components/GitHubGraph";
 import { getBlogPosts, getProjects, getExperience } from "../lib/content";
+import { getContributions } from "../lib/github";
 
 function fmtDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-SG", { day: "numeric", month: "short", year: "numeric" });
 }
 
-export default function Home() {
-  const blogPosts  = getBlogPosts().slice(0, 2);
-  const projects   = getProjects().slice(0, 2);
-  const experience = getExperience();
+export default async function Home() {
+  const blogPosts     = getBlogPosts().slice(0, 2);
+  const projects      = getProjects().slice(0, 2);
+  const experience    = getExperience();
+  const contributions = await getContributions(32);
 
   const sections = [
     {
@@ -107,7 +109,14 @@ export default function Home() {
                   </div>
 
                   <div style={{ marginTop: 28, overflowX: "hidden" }}>
-                    <GitHubGraph stretch weeks={32} label="contributions · past 32 weeks" seed="junshen" />
+                    <GitHubGraph
+                      stretch
+                      weeks={32}
+                      label="contributions · past 32 weeks"
+                      seed="junshen"
+                      days={contributions?.days}
+                      total={contributions?.total}
+                    />
                   </div>
                 </div>
 
