@@ -31,6 +31,8 @@ const QUERY = `
 export type ContributionData = {
   /** Raw contribution count per day, oldest → newest */
   days: number[];
+  /** ISO date string per day, same order as days */
+  dates: string[];
   /** Total contributions in the period */
   total: number;
 };
@@ -98,11 +100,19 @@ export async function getContributions(weeks: number = 32): Promise<Contribution
     return null;
   }
 
-  const days: number[] = (calendar.weeks as { contributionDays: { contributionCount: number }[] }[])
-    .flatMap((w) => w.contributionDays.map((d) => d.contributionCount));
+  const days: number[]  = [];
+  const dates: string[] = [];
+
+  for (const week of calendar.weeks as { contributionDays: { contributionCount: number; date: string }[] }[]) {
+    for (const day of week.contributionDays) {
+      days.push(day.contributionCount);
+      dates.push(day.date);
+    }
+  }
 
   return {
     days,
+    dates,
     total: calendar.totalContributions as number,
   };
 }

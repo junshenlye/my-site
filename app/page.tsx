@@ -115,6 +115,7 @@ export default async function Home() {
                       label="contributions · past 32 weeks"
                       seed="junshen"
                       days={contributions?.days}
+                      dates={contributions?.dates}
                       total={contributions?.total}
                     />
                   </div>
