@@ -2,15 +2,17 @@ import Link from "next/link";
 import Nav from "./components/Nav";
 import GitHubGraph from "./components/GitHubGraph";
 import { getBlogPosts, getProjects, getExperience } from "../lib/content";
+import { getContributions } from "../lib/github";
 
 function fmtDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-SG", { day: "numeric", month: "short", year: "numeric" });
 }
 
-export default function Home() {
-  const blogPosts  = getBlogPosts().slice(0, 2);
-  const projects   = getProjects().slice(0, 2);
-  const experience = getExperience();
+export default async function Home() {
+  const blogPosts     = getBlogPosts().slice(0, 2);
+  const projects      = getProjects().slice(0, 2);
+  const experience    = getExperience();
+  const contributions = await getContributions(32);
 
   const sections = [
     {
@@ -107,7 +109,15 @@ export default function Home() {
                   </div>
 
                   <div style={{ marginTop: 28, overflowX: "hidden" }}>
-                    <GitHubGraph stretch weeks={32} label="contributions · past 32 weeks" seed="junshen" />
+                    <GitHubGraph
+                      stretch
+                      weeks={32}
+                      label="contributions · past 32 weeks"
+                      seed="junshen"
+                      days={contributions?.days}
+                      dates={contributions?.dates}
+                      total={contributions?.total}
+                    />
                   </div>
                 </div>
 
@@ -116,8 +126,8 @@ export default function Home() {
 
                   {/* Profile card */}
                   <div style={{ backgroundColor: "var(--s1)", border: "1px solid var(--b1)", borderRadius: 8, padding: "16px 18px", display: "flex", alignItems: "center", gap: 14 }}>
-                    <div style={{ width: 42, height: 42, borderRadius: "50%", backgroundColor: "var(--s3)", border: "1px solid var(--b2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <span style={{ fontFamily: "var(--fm)", fontSize: 12, fontWeight: 600, color: "var(--t2)" }}>JS</span>
+                    <div style={{ width: 42, height: 42, borderRadius: "50%", border: "1px solid var(--b2)", flexShrink: 0, overflow: "hidden" }}>
+                      <img src="/avatar.jpeg" alt="Jun Shen" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                     </div>
                     <div>
                       <div style={{ fontFamily: "var(--fm)", fontSize: 14, fontWeight: 600, color: "var(--t1)", letterSpacing: "-0.01em", marginBottom: 2 }}>Jun Shen</div>
