@@ -1,14 +1,6 @@
-import Link from "next/link";
 import Nav from "../components/Nav";
-import { getBlogPosts } from "../../lib/content";
-
-function fmtDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-SG", { day: "numeric", month: "short", year: "numeric" });
-}
 
 export default function BlogPage() {
-  const posts = getBlogPosts();
-
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Nav />
@@ -25,36 +17,34 @@ export default function BlogPage() {
             </p>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 40 }}>
             <span style={{ fontFamily: "var(--fm)", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--t4)", whiteSpace: "nowrap" }}>
-              {posts.length} post{posts.length !== 1 ? "s" : ""}
+              Status
             </span>
             <div style={{ flex: 1, height: 1, backgroundColor: "var(--b1)" }} />
           </div>
 
-          {posts.length === 0 ? (
-            <div style={{ backgroundColor: "var(--s1)", border: "1px solid var(--b1)", borderRadius: 6, padding: "32px 24px", textAlign: "center" }}>
-              <p style={{ fontFamily: "var(--fm)", fontSize: 11, color: "var(--t4)", letterSpacing: "0.08em" }}>— No posts yet —</p>
+          <div style={{
+            border: "1px dashed var(--b2)",
+            borderRadius: 8,
+            padding: "clamp(40px, 8vw, 72px) 32px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+            gap: 16,
+          }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ display: "inline-block", width: 7, height: 7, borderRadius: "50%", backgroundColor: "var(--ac)", flexShrink: 0 }} />
+              <span style={{ fontFamily: "var(--fm)", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ac)" }}>In progress</span>
             </div>
-          ) : (
-            <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-              {posts.map((post) => (
-                <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: "none" }}>
-                  <div style={{ backgroundColor: "var(--s1)", border: "1px solid var(--b1)", borderRadius: 6, padding: "20px 24px", display: "grid", gridTemplateColumns: "1fr auto", gap: 16, alignItems: "start" }}>
-                    <div>
-                      <p style={{ fontFamily: "var(--fm)", fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--t3)", marginBottom: 8 }}>{post.category}</p>
-                      <p style={{ fontFamily: "var(--fm)", fontSize: 15, fontWeight: 600, color: "var(--t1)", letterSpacing: "-0.01em", lineHeight: 1.3, marginBottom: 8 }}>{post.title}</p>
-                      <p style={{ fontFamily: "var(--fb)", fontSize: 13, color: "var(--t3)", lineHeight: 1.6 }}>{post.description}</p>
-                    </div>
-                    <div style={{ textAlign: "right", flexShrink: 0 }}>
-                      <p style={{ fontFamily: "var(--fm)", fontSize: 10, color: "var(--t4)", marginBottom: 4 }}>{fmtDate(post.date)}</p>
-                      <p style={{ fontFamily: "var(--fm)", fontSize: 10, color: "var(--t4)" }}>{post.readTime} min read</p>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
+            <p style={{ fontFamily: "var(--fm)", fontSize: "clamp(16px,3vw,22px)", fontWeight: 600, letterSpacing: "-0.02em", color: "var(--t1)", lineHeight: 1.2 }}>
+              Posts are being written.
+            </p>
+            <p style={{ fontFamily: "var(--fb)", fontSize: 13, color: "var(--t4)", lineHeight: 1.65, maxWidth: 340 }}>
+              Writing takes time to do properly — first posts coming soon.
+            </p>
+          </div>
 
         </div>
       </main>
