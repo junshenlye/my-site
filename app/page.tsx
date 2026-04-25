@@ -138,7 +138,11 @@ export default function Home() {
                         </Link>
                       </div>
                       <div className="section-card-divider" />
-                      {section.items.map((item) => (
+                      {section.items.length === 0 ? (
+                        <div style={{ padding: "14px 16px" }}>
+                          <p style={{ fontFamily: "var(--fm)", fontSize: 11, color: "var(--t4)", letterSpacing: "0.04em" }}>— No activity yet</p>
+                        </div>
+                      ) : section.items.map((item) => (
                         <Link key={item.title} href={item.href} style={{ textDecoration: "none", display: "block" }}>
                           <div className="section-item">
                             <div style={{ flex: 1, minWidth: 0 }}>

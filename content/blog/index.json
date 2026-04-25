@@ -1,18 +1,1 @@
-[
-  {
-    "slug": "why-i-keep-reading",
-    "title": "Why I keep reading things I don't understand yet",
-    "date": "2026-04-09",
-    "category": "Learning",
-    "description": "On sitting with confusion as a learning strategy, and why the discomfort is the point.",
-    "readTime": 4
-  },
-  {
-    "slug": "how-a-cpu-executes-code",
-    "title": "How a CPU actually executes your code",
-    "date": "2026-03-28",
-    "category": "Systems",
-    "description": "A ground-up look at the fetch-decode-execute cycle, written by someone who had to learn it properly.",
-    "readTime": 6
-  }
-]
+[]

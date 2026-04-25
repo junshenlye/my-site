@@ -32,23 +32,29 @@ export default function BlogPage() {
             <div style={{ flex: 1, height: 1, backgroundColor: "var(--b1)" }} />
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-            {posts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: "none" }}>
-                <div style={{ backgroundColor: "var(--s1)", border: "1px solid var(--b1)", borderRadius: 6, padding: "20px 24px", display: "grid", gridTemplateColumns: "1fr auto", gap: 16, alignItems: "start" }}>
-                  <div>
-                    <p style={{ fontFamily: "var(--fm)", fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--t3)", marginBottom: 8 }}>{post.category}</p>
-                    <p style={{ fontFamily: "var(--fm)", fontSize: 15, fontWeight: 600, color: "var(--t1)", letterSpacing: "-0.01em", lineHeight: 1.3, marginBottom: 8 }}>{post.title}</p>
-                    <p style={{ fontFamily: "var(--fb)", fontSize: 13, color: "var(--t3)", lineHeight: 1.6 }}>{post.description}</p>
+          {posts.length === 0 ? (
+            <div style={{ backgroundColor: "var(--s1)", border: "1px solid var(--b1)", borderRadius: 6, padding: "32px 24px", textAlign: "center" }}>
+              <p style={{ fontFamily: "var(--fm)", fontSize: 11, color: "var(--t4)", letterSpacing: "0.08em" }}>— No posts yet —</p>
+            </div>
+          ) : (
+            <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              {posts.map((post) => (
+                <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: "none" }}>
+                  <div style={{ backgroundColor: "var(--s1)", border: "1px solid var(--b1)", borderRadius: 6, padding: "20px 24px", display: "grid", gridTemplateColumns: "1fr auto", gap: 16, alignItems: "start" }}>
+                    <div>
+                      <p style={{ fontFamily: "var(--fm)", fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--t3)", marginBottom: 8 }}>{post.category}</p>
+                      <p style={{ fontFamily: "var(--fm)", fontSize: 15, fontWeight: 600, color: "var(--t1)", letterSpacing: "-0.01em", lineHeight: 1.3, marginBottom: 8 }}>{post.title}</p>
+                      <p style={{ fontFamily: "var(--fb)", fontSize: 13, color: "var(--t3)", lineHeight: 1.6 }}>{post.description}</p>
+                    </div>
+                    <div style={{ textAlign: "right", flexShrink: 0 }}>
+                      <p style={{ fontFamily: "var(--fm)", fontSize: 10, color: "var(--t4)", marginBottom: 4 }}>{fmtDate(post.date)}</p>
+                      <p style={{ fontFamily: "var(--fm)", fontSize: 10, color: "var(--t4)" }}>{post.readTime} min read</p>
+                    </div>
                   </div>
-                  <div style={{ textAlign: "right", flexShrink: 0 }}>
-                    <p style={{ fontFamily: "var(--fm)", fontSize: 10, color: "var(--t4)", marginBottom: 4 }}>{fmtDate(post.date)}</p>
-                    <p style={{ fontFamily: "var(--fm)", fontSize: 10, color: "var(--t4)" }}>{post.readTime} min read</p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+                </Link>
+              ))}
+            </div>
+          )}
 
         </div>
       </main>

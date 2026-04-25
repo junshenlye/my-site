@@ -20,7 +20,7 @@ export type Project = {
   date: string;         // e.g. "2026-04"
   status: "Active" | "Shipped" | "Paused";
   description: string;
-  githubSlug: string;
+  githubRepo: string;   // repo name — used as mock seed now, real API later
 };
 
 export type ExperienceEntry = {
@@ -31,6 +31,11 @@ export type ExperienceEntry = {
   location: string;
   description: string;
   tags: string[];
+};
+
+export type Skill = {
+  label: string;
+  items: string;
 };
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -76,7 +81,14 @@ export function getProject(slug: string): { meta: Project; html: string } | null
 
 // ── Experience ────────────────────────────────────────────────────────────────
 
-/** Returns all experience entries. */
+/** Returns all experience entries from the manifest. */
 export function getExperience(): ExperienceEntry[] {
   return readJson<ExperienceEntry[]>(path.join(root, "experience.json"));
+}
+
+// ── Skills ────────────────────────────────────────────────────────────────────
+
+/** Returns skill groups shown on the experience page. */
+export function getSkills(): Skill[] {
+  return readJson<Skill[]>(path.join(root, "skills.json"));
 }

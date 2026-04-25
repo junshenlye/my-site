@@ -1,0 +1,6 @@
+[
+  { "label": "Languages", "items": "Python · C · JavaScript · TypeScript" },
+  { "label": "Web",       "items": "Next.js · React · Node.js"            },
+  { "label": "Tools",     "items": "Git · Linux · Postgres"               },
+  { "label": "Learning",  "items": "Go · Systems programming · Compilers" }
+]

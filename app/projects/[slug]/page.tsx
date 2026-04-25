@@ -43,7 +43,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <p style={{ fontFamily: "var(--fb)", fontSize: 14, color: "var(--t3)", lineHeight: 1.6, marginBottom: 20 }}>
               {meta.description}
             </p>
-            <GitHubGraph weeks={24} seed={meta.githubSlug} paused={meta.status === "Paused"} label="contributions · past 24 weeks" />
+            <GitHubGraph weeks={24} seed={meta.githubRepo} paused={meta.status === "Paused"} label="contributions · past 24 weeks" />
           </div>
 
           <div className="post-body" dangerouslySetInnerHTML={{ __html: html }} />
