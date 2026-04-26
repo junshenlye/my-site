@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# jun_shen
 
-## Getting Started
+> A personal site that stays honest — nothing published until it's real.
 
-First, run the development server:
+Built for a computing student in Singapore who wanted a home on the internet that reflects how he actually works: quietly, incrementally, and in public.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## The idea
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Most portfolio sites are frozen in time. They show a version of you that existed at some point — and then slowly become a lie as you grow past them.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This site is built differently. The content is intentionally empty at launch. The writing section fills up as posts get written. Projects appear when they're worth documenting. Experience gets added when there's experience worth adding. Nothing is fabricated to make the page look fuller than it is.
 
-## Learn More
+The design reflects that too — clean holding states instead of placeholder content, a contribution graph that shows real activity, and a structure that makes adding one new thing as simple as editing a text file.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## What's here
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Writing
+Notes from learning computing. The blog is for things worth writing down — explanations of concepts I had to work out myself, reflections on building things, observations about how software works. Written slowly, published when they're ready.
 
-## Deploy on Vercel
+### Projects
+Things built to understand. Not a portfolio of polished deliverables — more a record of learning through making. Each project gets a writeup that explains what it was, what the interesting problem was, and what came out of it.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Experience
+Roles and education, documented plainly. Added as they accumulate. No inflated titles or vague descriptions — just what happened and what it involved.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## The activity graph
+
+The contribution heatmap on the landing page is pulled live from GitHub. It shows real commit activity — not a graphic, not a decoration. When there's nothing happening, the graph is quiet. When there's a lot happening, it shows.
+
+It's there because I think showing up consistently matters more than showing off finished things. The graph is a record of the work, not the result.
+
+The graph updates automatically every hour via ISR — so it's always current without needing to rebuild the site.
+
+---
+
+## How it stays current
+
+The site is designed to be updated like a notebook, not rebuilt like a project. New content is a JSON entry and an HTML file. No CMS, no dashboard, no rebuild pipeline to think about. Write the post, drop the file in, push — it's live.
+
+The same applies to everything else. A new project is two lines in a manifest. A new experience entry is a JSON object. The structure stays out of the way so the actual work of writing and building can happen without friction.
+
+---
+
+## Built with
+
+Next.js · TypeScript · IBM Plex Mono + IBM Plex Sans · GitHub GraphQL API · Vercel
+
+---
+
+*Everything on this site is real or not yet here.*
