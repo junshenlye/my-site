@@ -6,6 +6,10 @@ Built for a computing student in Singapore who wanted a home on the internet tha
 
 ---
 
+![Landing page](docs/screenshots/landing.png)
+
+---
+
 ## The idea
 
 Most portfolio sites are frozen in time. They show a version of you that existed at some point — and then slowly become a lie as you grow past them.
@@ -18,14 +22,27 @@ The design reflects that too — clean holding states instead of placeholder con
 
 ## What's here
 
-### Writing
+### ✦ Writing
+
 Notes from learning computing. The blog is for things worth writing down — explanations of concepts I had to work out myself, reflections on building things, observations about how software works. Written slowly, published when they're ready.
 
-### Projects
+![Blog](docs/screenshots/blog.png)
+
+---
+
+### ✦ Projects
+
 Things built to understand. Not a portfolio of polished deliverables — more a record of learning through making. Each project gets a writeup that explains what it was, what the interesting problem was, and what came out of it.
 
-### Experience
+![Projects](docs/screenshots/projects.png)
+
+---
+
+### ✦ Experience
+
 Roles and education, documented plainly. Added as they accumulate. No inflated titles or vague descriptions — just what happened and what it involved.
+
+![Experience](docs/screenshots/experience.png)
 
 ---
 
@@ -33,9 +50,9 @@ Roles and education, documented plainly. Added as they accumulate. No inflated t
 
 The contribution heatmap on the landing page is pulled live from GitHub. It shows real commit activity — not a graphic, not a decoration. When there's nothing happening, the graph is quiet. When there's a lot happening, it shows.
 
-It's there because I think showing up consistently matters more than showing off finished things. The graph is a record of the work, not the result.
+It's there because showing up consistently matters more than showing off finished things. The graph is a record of the work, not the result.
 
-The graph updates automatically every hour via ISR — so it's always current without needing to rebuild the site.
+The graph updates automatically every hour — so it's always current without needing to rebuild the site.
 
 ---
 
