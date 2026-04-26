@@ -6,6 +6,10 @@ Built for a computing student in Singapore who wanted a home on the internet tha
 
 ---
 
+![Landing page](.github/screenshots/landing.png)
+
+---
+
 ## The idea
 
 Most portfolio sites are frozen in time. They show a version of you that existed at some point — and then slowly become a lie as you grow past them.
@@ -22,17 +26,23 @@ The design reflects that too — clean holding states instead of placeholder con
 
 Notes from learning computing. The blog is for things worth writing down — explanations of concepts I had to work out myself, reflections on building things, observations about how software works. Written slowly, published when they're ready.
 
+![Blog](.github/screenshots/blog.png)
+
 ---
 
 ### ✦ Projects
 
 Things built to understand. Not a portfolio of polished deliverables — more a record of learning through making. Each project gets a writeup that explains what it was, what the interesting problem was, and what came out of it.
 
+![Projects](.github/screenshots/projects.png)
+
 ---
 
 ### ✦ Experience
 
 Roles and education, documented plainly. Added as they accumulate. No inflated titles or vague descriptions — just what happened and what it involved.
+
+![Experience](.github/screenshots/experience.png)
 
 ---
 
