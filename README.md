@@ -6,7 +6,7 @@ Built for a computing student in Singapore who wanted a home on the internet tha
 
 ---
 
-![Landing page](https://raw.githubusercontent.com/junshenlye/my-site/assets/screenshots/landing.png)
+![Landing page](docs/screenshots/landing.png)
 
 ---
 
@@ -26,7 +26,7 @@ The design reflects that too — clean holding states instead of placeholder con
 
 Notes from learning computing. The blog is for things worth writing down — explanations of concepts I had to work out myself, reflections on building things, observations about how software works. Written slowly, published when they're ready.
 
-![Blog](https://raw.githubusercontent.com/junshenlye/my-site/assets/screenshots/blog.png)
+![Blog](docs/screenshots/blog.png)
 
 ---
 
@@ -34,7 +34,7 @@ Notes from learning computing. The blog is for things worth writing down — exp
 
 Things built to understand. Not a portfolio of polished deliverables — more a record of learning through making. Each project gets a writeup that explains what it was, what the interesting problem was, and what came out of it.
 
-![Projects](https://raw.githubusercontent.com/junshenlye/my-site/assets/screenshots/projects.png)
+![Projects](docs/screenshots/projects.png)
 
 ---
 
@@ -42,7 +42,7 @@ Things built to understand. Not a portfolio of polished deliverables — more a 
 
 Roles and education, documented plainly. Added as they accumulate. No inflated titles or vague descriptions — just what happened and what it involved.
 
-![Experience](https://raw.githubusercontent.com/junshenlye/my-site/assets/screenshots/experience.png)
+![Experience](docs/screenshots/experience.png)
 
 ---
 
