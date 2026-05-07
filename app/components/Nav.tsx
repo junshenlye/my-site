@@ -13,25 +13,47 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav
-      style={{
-        borderBottom: "1px solid var(--b1)",
-        backgroundColor: "var(--bg)",
-        position: "sticky",
-        top: 0,
-        zIndex: 10,
-      }}
-    >
-      <div
+    <>
+      <style>{`
+        .site-nav-inner {
+          max-width: 1080px;
+          margin: 0 auto;
+          padding: 0 32px;
+          height: 52px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .site-nav-links {
+          display: flex;
+          align-items: center;
+          gap: 28px;
+        }
+
+        @media (max-width: 640px) {
+          .site-nav-inner {
+            padding: 0 16px;
+            height: 56px;
+          }
+
+          .site-nav-links {
+            gap: 14px;
+          }
+        }
+      `}</style>
+
+      <nav
         style={{
-          maxWidth: 1080,
-          margin: "0 auto",
-          padding: "0 32px",
-          height: 52,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
+          borderBottom: "1px solid var(--b1)",
+          backgroundColor: "var(--bg)",
+          position: "sticky",
+          top: 0,
+          zIndex: 10,
         }}
+      >
+      <div
+        className="site-nav-inner"
       >
         <Link
           href="/"
@@ -47,7 +69,7 @@ export default function Nav() {
           jun<span style={{ color: "var(--ac)" }}>_</span>shen
         </Link>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
+        <div className="site-nav-links">
           {links.map(({ label, href }) => {
             const active = pathname === href || pathname.startsWith(href + "/");
             return (
@@ -72,6 +94,7 @@ export default function Nav() {
           })}
         </div>
       </div>
-    </nav>
+      </nav>
+    </>
   );
 }

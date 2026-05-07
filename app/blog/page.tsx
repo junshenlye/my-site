@@ -13,15 +13,51 @@ export default function BlogPage() {
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Nav />
       <main style={{ flex: 1 }}>
-        <div style={{ maxWidth: 1080, margin: "0 auto", padding: "clamp(32px,5vw,56px) 20px 80px" }}>
+        <style>{`
+          .blog-shell {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: clamp(32px, 5vw, 56px) 20px 80px;
+          }
+
+          .blog-archive {
+            display: grid;
+            max-width: 100%;
+          }
+
+          .blog-post-row {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 24px 0 26px;
+            border-top: 1px solid var(--b1);
+          }
+
+          .blog-post-row:first-child {
+            padding-top: 0;
+            border-top: none;
+          }
+
+          @media (max-width: 640px) {
+            .blog-shell {
+              padding: 24px 16px 56px;
+            }
+
+            .blog-post-row {
+              padding: 18px 0 20px;
+            }
+          }
+        `}</style>
+
+        <div className="blog-shell">
 
           <div style={{ marginBottom: 48 }}>
             <p style={{ fontFamily: "var(--fm)", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--t3)", marginBottom: 14 }}>Writing</p>
             <h1 style={{ fontFamily: "var(--fm)", fontSize: "clamp(26px,4vw,36px)", fontWeight: 600, letterSpacing: "-0.03em", color: "var(--t1)", lineHeight: 1.1, marginBottom: 12 }}>
-              Things I&apos;ve figured out,<br /><span style={{ color: "var(--ac)" }}>written down.</span>
+              Thoughts and questions,<br /><span style={{ color: "var(--ac)" }}>written down.</span>
             </h1>
             <p style={{ fontFamily: "var(--fb)", fontSize: 14, color: "var(--t3)", lineHeight: 1.65, maxWidth: 420 }}>
-              Notes from learning computing. Mostly for myself — but public in case it&apos;s useful.
+              Notes on computing, theory, and things I can&apos;t stop thinking about. Part reflection, part exploration, part working draft.
             </p>
           </div>
 
@@ -55,20 +91,12 @@ export default function BlogPage() {
               </p>
             </div>
           ) : (
-            <div style={{ display: "grid", gap: 16, maxWidth: 760 }}>
-              {posts.map((post) => (
+            <div className="blog-archive">
+              {posts.map((post, index) => (
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  style={{
-                    textDecoration: "none",
-                    color: "inherit",
-                    display: "block",
-                    backgroundColor: "var(--s1)",
-                    border: "1px solid var(--b1)",
-                    borderRadius: 8,
-                    padding: "22px 24px",
-                  }}
+                  className="blog-post-row"
                 >
                   <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10, marginBottom: 12 }}>
                     <span style={{ fontFamily: "var(--fm)", fontSize: 9, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--ac)" }}>
@@ -79,12 +107,32 @@ export default function BlogPage() {
                     <span style={{ width: 3, height: 3, borderRadius: "50%", backgroundColor: "var(--b2)", display: "inline-block" }} />
                     <span style={{ fontFamily: "var(--fm)", fontSize: 10, color: "var(--t4)" }}>{post.readTime} min read</span>
                   </div>
-                  <h2 style={{ fontFamily: "var(--fm)", fontSize: "clamp(18px,3vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", color: "var(--t1)", lineHeight: 1.15, marginBottom: 10 }}>
+                  <h2
+                    style={{
+                      fontFamily: "var(--fm)",
+                      fontSize: index === 0 ? "clamp(18px,2.1vw,24px)" : "clamp(17px,2.4vw,22px)",
+                      fontWeight: 600,
+                      letterSpacing: "-0.02em",
+                      color: "var(--t1)",
+                      lineHeight: 1.16,
+                      marginBottom: 8,
+                      maxWidth: 620,
+                    }}
+                  >
                     {post.title}
                   </h2>
-                  <p style={{ fontFamily: "var(--fb)", fontSize: 14, color: "var(--t3)", lineHeight: 1.68, maxWidth: 560 }}>
+                  <p
+                    style={{
+                      fontFamily: "var(--fb)",
+                      fontSize: index === 0 ? 15 : 14,
+                      color: "var(--t3)",
+                      lineHeight: 1.7,
+                      maxWidth: index === 0 ? 640 : 580,
+                    }}
+                  >
                     {post.description}
                   </p>
+                  <div style={{ marginTop: 18, width: "100%", height: 1, backgroundColor: "var(--b0)" }} />
                 </Link>
               ))}
             </div>
