@@ -62,6 +62,17 @@ The site is designed to be updated like a notebook, not rebuilt like a project. 
 
 The same applies to everything else. A new project is two lines in a manifest. A new experience entry is a JSON object. The structure stays out of the way so the actual work of writing and building can happen without friction.
 
+### Adding a blog post
+
+Blog posts live in two places:
+
+1. Add a metadata entry to `content/blog/index.json` with `slug`, `title`, `date`, `category`, `description`, and `readTime`.
+2. Create the matching HTML body at `content/blog/posts/<slug>.html`.
+
+The blog loader sorts posts by the ISO `date` field automatically, newest first, so the JSON file does not need to stay manually ordered.
+
+HTML is used intentionally instead of Markdown so post layouts can keep tighter visual control when needed.
+
 ---
 
 ## Built with

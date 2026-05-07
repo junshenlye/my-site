@@ -48,11 +48,19 @@ function readHtml(filePath: string): string {
   return fs.readFileSync(filePath, "utf-8");
 }
 
+function sortBlogPostsNewestFirst(posts: BlogPost[]): BlogPost[] {
+  return [...posts].sort((a, b) => b.date.localeCompare(a.date));
+}
+
+const blogPosts = sortBlogPostsNewestFirst(
+  readJson<BlogPost[]>(path.join(root, "blog", "index.json"))
+);
+
 // ── Blog ──────────────────────────────────────────────────────────────────────
 
 /** Returns all blog posts from the manifest, newest first. */
 export function getBlogPosts(): BlogPost[] {
-  return readJson<BlogPost[]>(path.join(root, "blog", "index.json"));
+  return blogPosts;
 }
 
 /** Returns metadata + HTML body for a single post. */
