@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "slug": "introduction",
+    "title": "Hello World!",
+    "date": "2026-05-07",
+    "category": "Introduction",
+    "description": "The first post on my blog: why I’m finally writing in public, what I want to share here, and what’s coming next.",
+    "readTime": 4
+  }
+]

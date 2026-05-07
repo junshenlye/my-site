@@ -1,9 +1,32 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "../../components/Nav";
 import { getBlogPost, getBlogPosts } from "../../../lib/content";
 
 export async function generateStaticParams() {
   return getBlogPosts().map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const { meta } = getBlogPost(slug);
+  const title = `${meta.title} | Jun Shen`;
+
+  return {
+    title,
+    description: meta.description,
+    openGraph: {
+      title,
+      description: meta.description,
+      type: "article",
+      publishedTime: meta.date,
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description: meta.description,
+    },
+  };
 }
 
 function fmtDate(iso: string) {
@@ -53,6 +76,24 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <style>{`
         .post-body { color: var(--t2); font-family: var(--fb); font-size: 16px; line-height: 1.78; }
         .post-body h2 { font-family: var(--fm); font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--t1); margin: 2.2em 0 0.8em; }
+        .post-body h2 a {
+          color: var(--t1);
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          transition: color 0.15s ease, gap 0.15s ease;
+        }
+        .post-body h2 a::after {
+          content: "↗";
+          font-size: 14px;
+          color: var(--ac);
+          transform: translateY(-1px);
+        }
+        .post-body h2 a:hover {
+          color: var(--ac);
+          gap: 10px;
+        }
         .post-body h3 { font-family: var(--fm); font-size: 14px; font-weight: 500; letter-spacing: -0.01em; color: var(--t1); margin: 1.8em 0 0.6em; }
         .post-body p  { margin-bottom: 1.4em; }
         .post-body p:last-child { margin-bottom: 0; }
