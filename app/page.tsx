@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "./components/Nav";
 import GitHubGraph from "./components/GitHubGraph";
@@ -127,7 +128,7 @@ export default async function Home() {
                   {/* Profile card */}
                   <div style={{ backgroundColor: "var(--s1)", border: "1px solid var(--b1)", borderRadius: 8, padding: "16px 18px", display: "flex", alignItems: "center", gap: 14 }}>
                     <div style={{ width: 42, height: 42, borderRadius: "50%", border: "1px solid var(--b2)", flexShrink: 0, overflow: "hidden" }}>
-                      <img src="/avatar.jpeg" alt="Jun Shen" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                      <Image src="/avatar.jpeg" alt="Jun Shen" width={42} height={42} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                     </div>
                     <div>
                       <div style={{ fontFamily: "var(--fm)", fontSize: 14, fontWeight: 600, color: "var(--t1)", letterSpacing: "-0.01em", marginBottom: 2 }}>Jun Shen</div>
