@@ -132,7 +132,6 @@ export default function BlogPage() {
                   >
                     {post.description}
                   </p>
-                  <div style={{ marginTop: 18, width: "100%", height: 1, backgroundColor: "var(--b0)" }} />
                 </Link>
               ))}
             </div>
