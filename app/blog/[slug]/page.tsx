@@ -107,7 +107,57 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         .post-body li  { margin-bottom: 0.4em; }
         .post-body blockquote { border-left: 3px solid var(--ac); padding-left: 18px; margin: 1.6em 0; color: var(--t3); font-style: italic; }
         .post-body img { max-width: 100%; border-radius: 6px; margin: 1.6em 0; }
+        .post-body .article-figure {
+          width: min(100%, 380px);
+          margin: 2em auto;
+        }
+        .post-body .article-figure--aside {
+          width: min(42%, 320px);
+        }
+        .post-body .article-figure--standalone {
+          width: min(100%, 360px);
+          float: none;
+          margin: 1.8em auto;
+        }
+        .post-body .article-figure--aside-right {
+          float: right;
+          margin: 0.3em 0 1.25em 28px;
+        }
+        .post-body .article-figure img {
+          display: block;
+          width: 100%;
+          height: auto;
+          margin: 0;
+          border: 1px solid var(--b1);
+          background: var(--bg);
+        }
+        .post-body .article-figure figcaption {
+          margin-top: 0.75em;
+          font-family: var(--fm);
+          font-size: 10px;
+          line-height: 1.4;
+          letter-spacing: 0.04em;
+          text-align: center;
+          font-weight: 600;
+          color: var(--t3);
+        }
+        .post-body::after {
+          content: "";
+          display: block;
+          clear: both;
+        }
         .post-body hr  { border: none; border-top: 1px solid var(--b1); margin: 2.4em 0; }
+        @media (max-width: 720px) {
+          .post-body .article-figure,
+          .post-body .article-figure--aside {
+            width: min(100%, 300px);
+            float: none;
+            margin: 1.6em auto;
+          }
+          .post-body .article-figure--standalone {
+            width: min(100%, 300px);
+          }
+        }
       `}</style>
 
       <footer style={{ borderTop: "1px solid var(--b1)" }}>
