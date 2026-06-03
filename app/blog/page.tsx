@@ -92,7 +92,7 @@ export default function BlogPage() {
             </div>
           ) : (
             <div className="blog-archive">
-              {posts.map((post, index) => (
+              {posts.map((post) => (
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
@@ -110,7 +110,7 @@ export default function BlogPage() {
                   <h2
                     style={{
                       fontFamily: "var(--fm)",
-                      fontSize: index === 0 ? "clamp(18px,2.1vw,24px)" : "clamp(17px,2.4vw,22px)",
+                      fontSize: "clamp(17px,2.2vw,22px)",
                       fontWeight: 600,
                       letterSpacing: "-0.02em",
                       color: "var(--t1)",
@@ -124,10 +124,10 @@ export default function BlogPage() {
                   <p
                     style={{
                       fontFamily: "var(--fb)",
-                      fontSize: index === 0 ? 15 : 14,
+                      fontSize: 14,
                       color: "var(--t3)",
                       lineHeight: 1.7,
-                      maxWidth: index === 0 ? 640 : 580,
+                      maxWidth: 580,
                     }}
                   >
                     {post.description}
